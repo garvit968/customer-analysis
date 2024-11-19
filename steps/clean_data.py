@@ -1,10 +1,17 @@
 import logging
 import pandas as pd
 from zenml import step
+from typing_extensions import Annotated
+from typing import Tuple    
 from src.data_cleaning import DataCleaning, DataDivideStrategy, DataPreprocessStrategy
 
 @step
-def clean_data(df: pd.DataFrame) -> None:
+def clean_data(df: pd.DataFrame) -> Tuple[
+    Annotated[pd.DataFrame, "X_train"],
+    Annotated[pd.DataFrame, "X_test"],
+    Annotated[pd.DataFrame, "y_train"],
+    Annotated[pd.DataFrame, "y_test"],
+]:
     try:
         process_strategy = DataPreprocessStrategy()
         data_cleaning = DataCleaning(df, process_strategy)
