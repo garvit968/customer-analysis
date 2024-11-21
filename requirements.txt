@@ -8,3 +8,4 @@ markupsafe
 zenml
 pandas
 scikit-learn
+mlflow

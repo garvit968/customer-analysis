@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 class Evaluation(ABC):
 
     @abstractmethod
-    def calculate_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
+    def calculate_score(self, y_true: np.ndarray, y_pred: np.ndarray):
         pass
 
 class MSE(Evaluation):
